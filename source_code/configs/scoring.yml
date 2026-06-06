@@ -1,0 +1,7 @@
+thresholds:
+  json_valid_rate: 1.0
+  sql_exec_success_rate: 1.0
+  sql_result_match_rate: 0.9
+  api_normalized_match_rate: 0.9
+  answer_evidence_coverage_rate: 0.9
+  max_avg_tool_calls: 3.0

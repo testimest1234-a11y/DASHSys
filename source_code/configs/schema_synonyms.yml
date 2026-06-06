@@ -1,0 +1,12 @@
+synonyms:
+  journey: [campaign, dim_campaign]
+  campaign: [journey, dim_campaign]
+  audience: [segment, dim_segment]
+  segment: [audience, dim_segment]
+  destination: [target, dim_target]
+  target: [destination, dim_target]
+  field: [property, attribute, dim_property]
+  property: [field, attribute, dim_property]
+  schema: [blueprint, dim_blueprint]
+  dataset: [collection, dim_collection]
+  connector: [source, dim_connector]
