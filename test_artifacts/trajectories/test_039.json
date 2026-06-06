@@ -1,0 +1,100 @@
+{
+  "query": "Show me the details of the tag named 'AI-Generated'.",
+  "trace": [
+    {
+      "step": 1,
+      "action": "api_call",
+      "api_call": {
+        "method": "GET",
+        "url": "https://experience.adobe.io/unifiedtags/tags",
+        "params": {
+          "limit": "100"
+        },
+        "status_code": 200,
+        "result_preview": {
+          "tags": [
+            {
+              "id": "e8cc16ae-a9fc-4932-9881-37c0a4f9851a",
+              "name": "AI-Generated",
+              "uname": "[REDACTED]:Uncategorized-[REDACTED]:ai-generated",
+              "org": "[REDACTED]",
+              "tagCategoryId": "Uncategorized-[REDACTED]",
+              "tagCategoryName": "Uncategorized",
+              "archived": false,
+              "createdBy": "8AC21FE266602DE40A495FC7@8ac11fe266602de4495fc7.e",
+              "createdAt": 1771356465184,
+              "modifiedBy": "8AC21FE266602DE40A495FC7@8ac11fe266602de4495fc7.e",
+              "modifiedAt": 1771356465184
+            },
+            {
+              "id": "029025d2-fe85-4150-93ee-78a5da1feccd",
+              "name": "cool",
+              "uname": "[REDACTED]:Uncategorized-[REDACTED]:cool",
+              "org": "[REDACTED]",
+              "tagCategoryId": "Uncategorized-[REDACTED]",
+              "tagCategoryName": "Uncategorized",
+              "archived": false,
+              "createdBy": "8AC21FE266602DE40A495FC7@8ac11fe266602de4495fc7.e",
+              "createdAt": 1727469677827,
+              "modifiedBy": "8AC21FE266602DE40A495FC7@8ac11fe266602de4495fc7.e",
+              "modifiedAt": 1727469677827
+            },
+            {
+              "id": "44ff3a90-3a0d-425c-9cc5-6a38514c833d",
+              "name": "new clients",
+              "uname": "[REDACTED]:Uncategorized-[REDACTED]:new clients",
+              "org": "[REDACTED]",
+              "tagCategoryId": "Uncategorized-[REDACTED]",
+              "tagCategoryName": "Uncategorized",
+              "archived": false,
+              "createdBy": "8AC21FE266602DE40A495FC7@8ac11fe266602de4495fc7.e",
+              "createdAt": 1748463486496,
+              "modifiedBy": "8AC21FE266602DE40A495FC7@8ac11fe266602de4495fc7.e",
+              "modifiedAt": 1748463486496
+            },
+            {
+              "id": "51175a7f-aa60-4533-bef1-717b3cef7818",
+              "name": "sublist",
+              "uname": "[REDACTED]:Uncategorized-[REDACTED]:sublist",
+              "org": "[REDACTED]",
+              "tagCategoryId": "Uncategorized-[REDACTED]",
+              "tagCategoryName": "Uncategorized",
+              "archived": false,
+              "createdBy": "8AC21FE266602DE40A495FC7@8ac11fe266602de4495fc7.e",
+              "createdAt": 1756149078235,
+              "modifiedBy": "8AC21FE266602DE40A495FC7@8ac11fe266602de4495fc7.e",
+              "modifiedAt": 1756149078235
+            },
+            {
+              "id": "d249c614-fef1-4d2f-8e65-d8e62fa95021",
+              "name": "test",
+              "uname": "[REDACTED]:Uncategorized-[REDACTED]:test",
+              "org": "[REDACTED]",
+              "tagCategoryId": "Uncategorized-[REDACTED]",
+              "tagCategoryName": "Uncategorized",
+              "archived": false,
+              "createdBy": "8AC21FE266602DE40A495FC7@8ac11fe266602de4495fc7.e",
+              "createdAt": 1722607035000,
+              "modifiedBy": "8AC21FE266602DE40A495FC7@8ac11fe266602de4495fc7.e",
+              "modifiedAt": 1722607035000
+            }
+          ],
+          "_page": {
+            "start": "",
+            "next": null,
+            "limit": 100,
+            "count": 5,
+            "property": null,
+            "sortBy": "",
+            "sortOrder": ""
+          }
+        },
+        "mock": false,
+        "endpoint_path": "/unifiedtags/tags",
+        "latency_seconds": 1.7617329000495374,
+        "error_category": "none"
+      }
+    }
+  ],
+  "answer": "SQL evidence was not required or returned no rows. API evidence includes 1 call(s)."
+}

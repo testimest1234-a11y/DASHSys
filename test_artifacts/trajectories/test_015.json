@@ -1,0 +1,49 @@
+{
+  "query": "Provide more details for the schema 'weRetail: CRM'",
+  "trace": [
+    {
+      "step": 1,
+      "action": "sql_query",
+      "sql": "SELECT S.BLUEPRINTID AS blueprint_id,\n       S.NAME,\n       S.CLASS,\n       S.ISPROFILEENABLED,\n       S.UPDATEDTIME AS updated_time,\n       S.REQUIREDFIELDS AS required_fields,\n       COUNT(DISTINCT SD.COLLECTIONID) AS collection_count,\n       COUNT(DISTINCT SA.PROPERTY) AS property_count\nFROM DIM_BLUEPRINT AS S\nLEFT JOIN HKG_BR_BLUEPRINT_COLLECTION AS SD ON S.BLUEPRINTID = SD.BLUEPRINTID\nLEFT JOIN HKG_BR_BLUEPRINT_PROPERTY AS SA ON S.BLUEPRINTID = SA.BLUEPRINTID\nWHERE LOWER(S.NAME) = LOWER('weRetail: CRM')\nGROUP BY S.BLUEPRINTID,\n         S.NAME,\n         S.CLASS,\n         S.ISPROFILEENABLED,\n         S.UPDATEDTIME,\n         S.REQUIREDFIELDS\nLIMIT 3",
+      "results": [
+        {
+          "blueprint_id": "69ab9581a7558e3516b0080f232b56ebeb2993b2a7b363af",
+          "NAME": "weRetail: CRM",
+          "CLASS": "https://ns.adobe.com/xdm/context/profile",
+          "ISPROFILEENABLED": true,
+          "updated_time": "2026-03-29T07:50:21.000+00:00",
+          "required_fields": "[]",
+          "collection_count": 1,
+          "property_count": 21
+        }
+      ],
+      "status": "success"
+    },
+    {
+      "step": 2,
+      "action": "api_call",
+      "api_call": {
+        "method": "GET",
+        "url": "https://platform.adobe.io/data/foundation/schemaregistry/tenant/schemas",
+        "params": {
+          "limit": "5",
+          "property": "title==weRetail: CRM"
+        },
+        "status_code": 200,
+        "result_preview": [
+          {
+            "$id": "https://ns.adobe.com/adobepeakprogram/schemas/69ab9581a7558e3516b0080f232b56ebeb2993b2a7b363af",
+            "meta:altId": "_adobepeakprogram.schemas.69ab9581a7558e3516b0080f232b56ebeb2993b2a7b363af",
+            "version": "1.1",
+            "title": "weRetail: CRM"
+          }
+        ],
+        "mock": false,
+        "endpoint_path": "/data/foundation/schemaregistry/tenant/schemas",
+        "latency_seconds": 2.5215572000015527,
+        "error_category": "none"
+      }
+    }
+  ],
+  "answer": "SQL evidence returned 1 row(s): 69ab9581a7558e3516b0080f232b56ebeb2993b2a7b363af. API evidence includes 1 call(s)."
+}

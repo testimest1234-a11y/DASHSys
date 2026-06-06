@@ -1,0 +1,340 @@
+{
+  "query": "List all segment audiences connected to the destination named 'Person: Birthday within 7 days', showing audienceId, name, totalProfiles, createdTime, updatedTime, and used in other audience count for each audience. Remove any row limit from the results.",
+  "trace": [
+    {
+      "step": 1,
+      "action": "sql_query",
+      "sql": "SELECT\n    a.segmentid AS segment_id,\n    a.name AS segment_name,\n    a.totalmembers AS total_profiles,\n    a.createdTime AS created_time,\n    a.updatedTime AS updated_time,\n    COUNT(DISTINCT dep.dependentSegmentId) AS used_in_other_audience_count\nFROM dim_segment a\nJOIN hkg_br_segment_target ad ON a.segmentid = ad.segmentid\nJOIN dim_target d ON ad.targetId = d.targetId\nLEFT JOIN hkg_br_base_segment_used_by_dependent_segment dep ON a.segmentid = dep.segmentid\nWHERE d.dataflowName = 'Person: Birthday within 7 days'\n   OR d.name = 'Person: Birthday within 7 days'\nGROUP BY a.segmentid, a.name, a.totalmembers, a.createdTime, a.updatedTime\nORDER BY a.name",
+      "results": [],
+      "status": "success"
+    },
+    {
+      "step": 2,
+      "action": "api_call",
+      "api_call": {
+        "method": "GET",
+        "url": "https://platform.adobe.io/data/core/ups/audiences",
+        "params": {
+          "limit": "5",
+          "name": "Person: Birthday within 7 days"
+        },
+        "status_code": 200,
+        "result_preview": {
+          "_page": {
+            "totalCount": 1,
+            "totalPages": 1,
+            "pageSize": 1,
+            "limit": 5,
+            "start": "0",
+            "pageOffset": "0"
+          },
+          "children": [
+            {
+              "id": "8d1eda81-5df9-4d7a-ab48-56d49c4b1c8d",
+              "sandbox": {
+                "sandboxId": "a30a9c4e-327a-4d60-8a9c-4e327a6d60dd",
+                "sandboxName": "external-benchmarking",
+                "type": "production",
+                "default": false
+              },
+              "imsOrgId": "[REDACTED]",
+              "schema": {
+                "name": "_xdm.context.profile"
+              },
+              "ttlInDays": 30,
+              "profileInstanceId": "ups",
+              "name": "Person: Birthday within 7 days",
+              "description": "Person: Birthday within 7 days",
+              "expression": {
+                "type": "PQL",
+                "format": "pql/json",
+                "value": "{\"nodeType\":\"fnApply\",\"fnName\":\"and\",\"params\":[{\"nodeType\":\"occurs\",\"timestamp\":{\"nodeType\":\"fieldLookup\",\"fieldName\":\"birthDate\",\"object\":{\"nodeType\":\"fieldLookup\",\"fieldName\":\"person\",\"object\":{\"nodeType\":\"parameterReference\",\"position\":1}}},\"timeinterval\":{\"nodeType\":\"literal\",\"literalType\":\"Timestamp\",\"value\":\"today\"},\"relation\":{\"nodeType\":\"literal\",\"literalType\":\"TimeDirection\",\"value\":\"after\"},\"qualification\":{\"nodeType\":\"timeQualification\",\"duration\":{\"nodeType\":\"duration\",\"count\":{\"nodeType\":\"literal\",\"literalType\":\"Integer\",\"value\":1},\"unit\":{\"nodeType\":\"literal\",\"literalType\":\"TimeUnit\",\"value\":\"days\"}},\"comparison\":{\"nodeType\":\"literal\",\"literalType\":\"Comparison\",\"value\":\">=\"}}},{\"nodeType\":\"occurs\",\"timestamp\":{\"nodeType\":\"fieldLookup\",\"fieldName\":\"birthDate\",\"object\":{\"nodeType\":\"fieldLookup\",\"fieldName\":\"person\",\"object\":{\"nodeType\":\"parameterReference\",\"position\":1}}},\"timeinterval\":{\"nodeType\":\"literal\",\"literalType\":\"Timestamp\",\"value\":\"today\"},\"relation\":{\"nodeType\":\"literal\",\"literalType\":\"TimeDirection\",\"value\":\"after\"},\"qualification\":{\"nodeType\":\"timeQualification\",\"duration\":{\"nodeType\":\"duration\",\"count\":{\"nodeType\":\"literal\",\"literalType\":\"Integer\",\"value\":8},\"unit\":{\"nodeType\":\"literal\",\"literalType\":\"TimeUnit\",\"value\":\"days\"}},\"comparison\":{\"nodeType\":\"literal\",\"literalType\":\"Comparison\",\"value\":\"<=\"}}}]}"
+              },
+              "mergePolicyId": "22a941a9-e598-45f8-846b-c9a8889f5035",
+              "evaluationInfo": {
+                "batch": {
+                  "enabled": true
+                },
+                "continuous": {
+                  "enabled": false
+                },
+                "synchronous": {
+                  "enabled": false
+                }
+              },
+              "ansibleUiEnabled": false,
+              "dataGovernancePolicy": {
+                "excludeOptOut": true
+              },
+              "creationTime": 1774770688104,
+              "createEpoch": 1774770688,
+              "updateTime": 1774770688104,
+              "updateEpoch": 1774770688,
+              "dependents": [],
+              "definedOn": [
+                {
+                  "$ref": "https://ns.adobe.com/xdm/context/profile__union",
+                  "meta:containerId": "a30a9c4e-327a-4d60-8a9c-4e327a6d60dd",
+                  "meta:resourceType": "unions"
+                }
+              ],
+              "dependencies": [],
+              "type": "SegmentDefinition",
+              "dataRefPaths": {
+                "_xdm.context.profile": [
+                  "person.birthDate"
+                ]
+              },
+              "overridePerformanceWarnings": false,
+              "createdBy": "CCBE21E6693750D80A495FBC@techacct.adobe.com",
+              "lastModifiedBy": "CCBE21E6693750D80A495FBC@techacct.adobe.com",
+              "namespace": "AEPSegments",
+              "audienceId": "8d1eda81-5df9-4d7a-ab48-56d49c4b1c8d",
+              "isSystem": false,
+              "saveSegmentMembership": true,
+              "metrics": {
+                "id": "8d1eda81-5df9-4d7a-ab48-56d49c4b1c8d",
+                "jobId": "15501707",
+                "type": "export",
+                "data": {
+                  "totalProfiles": 0
+                },
+                "updateEpoch": 1780488968
+              },
+              "lifecycleState": "published",
+              "lifecycle": "published",
+              "originName": "REAL_TIME_CUSTOMER_PROFILE",
+              "relationalExpression": false,
+              "mergePolicies": {
+                "_xdm.context.profile": "22a941a9-e598-45f8-846b-c9a8889f5035"
+              },
+              "_etag": "2e791fe8-7392-4f1a-9bb1-eb5211ad7376"
+            }
+          ],
+          "_links": {
+            "next": {}
+          }
+        },
+        "mock": false,
+        "endpoint_path": "/data/core/ups/audiences",
+        "latency_seconds": 1.6976530998945236,
+        "error_category": "none"
+      }
+    },
+    {
+      "step": 3,
+      "action": "api_call",
+      "api_call": {
+        "method": "GET",
+        "url": "https://platform.adobe.io/data/foundation/flowservice/flows",
+        "params": {
+          "property": "inheritedAttributes.properties.isDestinationFlow==true",
+          "limit": "5"
+        },
+        "status_code": 200,
+        "result_preview": [
+          {
+            "id": "139bece0-5266-46bd-8ed3-fc1dd5eb5dd4",
+            "createdAt": 1774770853226,
+            "updatedAt": 1780589364653,
+            "createdBy": "CCBE21E6693750D80A495FBC@techacct.adobe.com",
+            "updatedBy": "acp_foundation_connectors@AdobeID",
+            "createdClient": "6c4ddfb5459c477ba86b3790550fa592",
+            "updatedClient": "acp_foundation_connectors",
+            "sandboxId": "a30a9c4e-327a-4d60-8a9c-4e327a6d60dd",
+            "sandboxName": "external-benchmarking",
+            "imsOrgId": "[REDACTED]",
+            "name": "Activate segments to S3 Feed",
+            "description": "This operation creates a dataflow S3 Feed",
+            "flowSpec": {
+              "id": "bc463881-c428-4ae6-b0e2-9bbb92a8c366",
+              "version": "1.0"
+            },
+            "state": "enabled",
+            "version": "\"be01683b-0000-0200-0000-6a21a3340000\"",
+            "etag": "\"be01683b-0000-0200-0000-6a21a3340000\"",
+            "sourceConnectionIds": [
+              "efd8fa4a-01cd-4448-960a-7050ed0e9a8c"
+            ],
+            "targetConnectionIds": [
+              "0f0d4404-fa7f-4f20-ba78-d693ac060de1"
+            ],
+            "inheritedAttributes": {
+              "properties": {
+                "isDestinationFlow": true
+              },
+              "sourceConnections": [
+                {
+                  "id": "efd8fa4a-01cd-4448-960a-7050ed0e9a8c",
+                  "connectionSpec": {
+                    "id": "8a9c3494-9708-43d7-ae3f-cda01e5030e1",
+                    "version": "1.0"
+                  },
+                  "baseConnection": {
+                    "id": "f58e2926-fa08-4664-a0ed-57e1a6cb15a7",
+                    "connectionSpec": {
+                      "id": "8a9c3494-9708-43d7-ae3f-cda01e5030e1",
+                      "version": "1.0"
+                    }
+                  },
+                  "typeInfo": {
+                    "type": "ProfileFragments",
+                    "id": "ups"
+                  }
+                }
+              ],
+              "targetConnections": [
+                {
+                  "id": "0f0d4404-fa7f-4f20-ba78-d693ac060de1",
+                  "connectionSpec": {
+                    "id": "4890fc95-5a1f-4983-94bb-e060c08e3f81",
+                    "version": "1.0"
+                  },
+                  "baseConnection": {
+                    "id": "2816f8dc-e40d-4047-ba0a-787e1a8cabbd",
+                    "connectionSpec": {
+                      "id": "4890fc95-5a1f-4983-94bb-e060c08e3f81",
+                      "version": "1.0"
+                    }
+                  }
+                }
+              ]
+            },
+            "transformations": [
+              {
+                "name": "GeneralTransform",
+                "params": {
+                  "segmentSelectors": {
+                    "selectors": [
+                      {
+                        "type": "PLATFORM_SEGMENT",
+                        "value": {
+                          "id": "f6b93428-c021-4058-a1a2-77c277aab564",
+                          "name": "Gender: Male",
+                          "filenameTemplate": "%DESTINATION_NAME%_%SEGMENT_ID%_%DATETIME(YYYYMMdd_HHmmss)%",
+                          "exportMode": "DAILY_FULL_EXPORT",
+                          "schedule": {
+                            "frequency": "DAILY",
+                            "triggerType": "SCHEDULED",
+                            "startDate": "2026-03-29",
+                            "startTime": "16:00"
+                          },
+                          "createTime": "1774770856",
+                          "updateTime": "1774770856"
+                        }
+                      }
+                    ]
+                  },
+                  "profileSelectors": {
+                    "selectors": [
+                      {
+                        "type": "JSON_PATH",
+                        "value": {
+                          "path": "person.name.firstName",
+                          "operator": "EXISTS",
+                          "mapping": {
+                            "sourceType": "text/x.schema-path",
+                            "source": "person.name.firstName",
+                            "destination": "person.name.firstName",
+                            "identity": false,
+                            "primaryIdentity": false,
+                            "functionVersion": 0,
+                            "sourceAttribute": "person.name.firstName",
+                            "destinationXdmPath": "person.name.firstName"
+                          }
+                        }
+                      },
+                      {
+                        "type": "JSON_PATH",
+                        "value": {
+                          "path": "personalEmail.address",
+                          "operator": "EXISTS",
+                          "mapping": {
+                            "sourceType": "text/x.schema-path",
+                            "source": "personalEmail.address",
+                            "destination": "personalEmail.address",
+                            "identity": false,
+                            "primaryIdentity": false,
+                            "functionVersion": 0,
+                            "sourceAttribute": "personalEmail.address",
+                            "destinationXdmPath": "personalEmail.address"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            ],
+            "runs": "/runs?property=flowId==139bece0-5266-46bd-8ed3-fc1dd5eb5dd4",
+            "lastOperation": {
+              "started": 1774770855957,
+              "updated": 1774770868256,
+              "percentCompleted": 100.0,
+              "status": {
+                "value": "completed",
+                "properties": null,
+                "errors": []
+              },
+              "ops": [
+                {
+                  "op": "add",
+                  "path": "/transformations/0/params/segmentSelectors/selectors/-",
+                  "value": {
+                    "type": "PLATFORM_SEGMENT",
+                    "value": {
+                      "id": "f6b93428-c021-4058-a1a2-77c277aab564",
+                      "name": "Gender: Male",
+                      "filenameTemplate": "%DESTINATION_NAME%_%SEGMENT_ID%_%DATETIME(YYYYMMdd_HHmmss)%",
+                      "exportMode": "DAILY_FULL_EXPORT",
+                      "schedule": {
+                        "frequency": "DAILY",
+                        "startDate": "2026-03-29",
+                        "startTime": "16:00"
+                      }
+                    }
+                  }
+                },
+                {
+                  "op": "add",
+                  "path": "/transformations/0/params/profileSelectors/selectors/-",
+                  "value": {
+                    "type": "JSON_PATH",
+                    "value": {
+                      "operator": "EXISTS",
+                      "path": "person.name.firstName"
+                    }
+                  }
+                },
+                {
+                  "op": "add",
+                  "path": "/transformations/0/params/profileSelectors/selectors/-",
+                  "value": {
+                    "type": "JSON_PATH",
+                    "value": {
+                      "operator": "EXISTS",
+                      "path": "personalEmail.address"
+                    }
+                  }
+                }
+              ],
+              "operation": "update"
+            },
+            "lastRunDetails": {
+              "id": "b644d620-52a8-4443-90a6-b2ca7852b76d",
+              "state": "failed",
+              "startedAtUTC": 1780589191326,
+              "completedAtUTC": 1780589234979
+            },
+            "labels": []
+          }
+        ],
+        "mock": false,
+        "endpoint_path": "/data/foundation/flowservice/flows",
+        "latency_seconds": 1.841928300098516,
+        "error_category": "none"
+      }
+    }
+  ],
+  "answer": "SQL evidence was not required or returned no rows. API evidence includes 2 call(s)."
+}

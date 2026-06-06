@@ -1,0 +1,37 @@
+{
+  "query": "Which files are available for download in batch 01KP6MNQ3X71RP6MNH6FHWGHVE?",
+  "trace": [
+    {
+      "step": 1,
+      "action": "api_call",
+      "api_call": {
+        "method": "GET",
+        "url": "https://platform.adobe.io/data/foundation/export/batches/01KP6MNQ3X71RP6MNH6FHWGHVE/files",
+        "params": {},
+        "status_code": 200,
+        "result_preview": {
+          "data": [
+            {
+              "dataSetFileId": "01KP6MNQ3X71RP6MNH6FHWGHVE-DE1",
+              "isValid": false,
+              "_links": {
+                "self": {
+                  "href": "https://platform.adobe.io:443/data/foundation/export/files/01KP6MNQ3X71RP6MNH6FHWGHVE-DE1"
+                }
+              }
+            }
+          ],
+          "_page": {
+            "limit": 100,
+            "count": 1
+          }
+        },
+        "mock": false,
+        "endpoint_path": "/data/foundation/export/batches/01KP6MNQ3X71RP6MNH6FHWGHVE/files",
+        "latency_seconds": 2.390002700034529,
+        "error_category": "none"
+      }
+    }
+  ],
+  "answer": "SQL evidence was not required or returned no rows. API evidence includes 1 call(s)."
+}

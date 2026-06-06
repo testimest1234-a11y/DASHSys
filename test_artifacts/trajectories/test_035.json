@@ -1,0 +1,13 @@
+{
+  "query": "Which properties from the schema 'weRetail: CRM' are used by audiences in live journeys?",
+  "trace": [
+    {
+      "step": 1,
+      "action": "sql_query",
+      "sql": "WITH schema_properties AS (\n    SELECT DISTINCT bp.property\n    FROM hkg_br_blueprint_property bp\n    JOIN dim_blueprint b ON bp.blueprintid = b.blueprintid\n    WHERE LOWER(b.name) = LOWER('weRetail: CRM')\n),\nlive_journey_segments AS (\n    SELECT DISTINCT cs.segmentid\n    FROM br_campaign_segment cs\n    JOIN dim_campaign c ON cs.campaignid = c.campaignid\n    WHERE LOWER(c.state) IN ('deployed', 'redeployed', 'live', 'published')\n       OR LOWER(c.status) IN ('deployed', 'redeployed', 'live', 'published')\n       OR c.lastdeployedtime IS NOT NULL\n)\nSELECT sp.property AS property_name,\n       p.type AS property_type,\n       p.altdisplaytitle AS display_title,\n       COUNT(DISTINCT s.segmentid) AS audience_count,\n       string_agg(DISTINCT s.name, ', ') AS audience_names\nFROM schema_properties sp\nJOIN hkg_br_segment_property segp ON sp.property = segp.property\nJOIN live_journey_segments ljs ON segp.segmentid = ljs.segmentid\nJOIN dim_segment s ON segp.segmentid = s.segmentid\nLEFT JOIN dim_property p ON sp.property = p.property\nGROUP BY sp.property, p.type, p.altdisplaytitle\nORDER BY sp.property",
+      "results": [],
+      "status": "success"
+    }
+  ],
+  "answer": "No SQL evidence was available."
+}

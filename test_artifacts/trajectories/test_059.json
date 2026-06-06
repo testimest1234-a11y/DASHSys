@@ -1,0 +1,83 @@
+{
+  "query": "Show ingestion record counts and batch success counts for the last 7 days.",
+  "trace": [
+    {
+      "step": 1,
+      "action": "api_call",
+      "api_call": {
+        "method": "POST",
+        "url": "https://platform.adobe.io/data/infrastructure/observability/insights/metrics",
+        "params": {},
+        "status_code": 200,
+        "result_preview": {
+          "metricResponses": [
+            {
+              "metric": "timeseries.ingestion.dataset.batchsuccess.count",
+              "filters": [],
+              "datapoints": [
+                {
+                  "groupByKeySignature": "",
+                  "groupBy": {},
+                  "dps": {
+                    "2026-06-04T00:00:00Z": 3.0,
+                    "2026-06-01T00:00:00Z": 8.0,
+                    "2026-06-03T00:00:00Z": 7.0,
+                    "2026-05-30T00:00:00Z": 9.0,
+                    "2026-05-29T00:00:00Z": 9.0,
+                    "2026-05-31T00:00:00Z": 8.0,
+                    "2026-06-02T00:00:00Z": 8.0
+                  }
+                }
+              ],
+              "granularity": "DAY",
+              "entrypoint": null
+            },
+            {
+              "metric": "timeseries.ingestion.dataset.recordsuccess.count",
+              "filters": [],
+              "datapoints": [
+                {
+                  "groupByKeySignature": "",
+                  "groupBy": {},
+                  "dps": {
+                    "2026-06-04T00:00:00Z": 0.0,
+                    "2026-06-01T00:00:00Z": 48.0,
+                    "2026-06-03T00:00:00Z": 44.0,
+                    "2026-05-30T00:00:00Z": 48.0,
+                    "2026-05-29T00:00:00Z": 51.0,
+                    "2026-05-31T00:00:00Z": 48.0,
+                    "2026-06-02T00:00:00Z": 48.0
+                  }
+                }
+              ],
+              "granularity": "DAY",
+              "entrypoint": null
+            }
+          ]
+        },
+        "mock": false,
+        "body": {
+          "start": "2026-05-29T00:00:00.000Z",
+          "end": "2026-06-04T23:59:59.000Z",
+          "granularity": "day",
+          "metrics": [
+            {
+              "name": "timeseries.ingestion.dataset.recordsuccess.count",
+              "filters": [],
+              "aggregator": "sum"
+            },
+            {
+              "name": "timeseries.ingestion.dataset.batchsuccess.count",
+              "filters": [],
+              "aggregator": "sum"
+            }
+          ]
+        },
+        "endpoint_path": "/data/infrastructure/observability/insights/metrics",
+        "latency_seconds": 1.9092774998862296,
+        "error_category": "none"
+      }
+    }
+  ],
+  "answer": "SQL evidence was not required or returned no rows. API evidence includes 1 call(s)."
+}

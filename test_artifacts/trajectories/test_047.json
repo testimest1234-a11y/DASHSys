@@ -1,0 +1,95 @@
+{
+  "query": "Show the details of batch 69de41036e08302b5cc7fd0c.",
+  "trace": [
+    {
+      "step": 1,
+      "action": "api_call",
+      "api_call": {
+        "method": "GET",
+        "url": "https://platform.adobe.io/data/foundation/catalog/batches/69de41036e08302b5cc7fd0c",
+        "params": {},
+        "status_code": 200,
+        "result_preview": {
+          "69de41036e08302b5cc7fd0c": {
+            "status": "success",
+            "relatedObjects": [
+              {
+                "id": "69c8d9e7cba5deaa7974b00b",
+                "type": "dataSet"
+              },
+              {
+                "id": "01KP62VBJQYKPCJ2JS5BSMNZ91",
+                "type": "batch"
+              }
+            ],
+            "imsOrg": "[REDACTED]",
+            "sandboxId": "a30a9c4e-327a-4d60-8a9c-4e327a6d60dd",
+            "errors": [],
+            "tags": {
+              "adobe/batchIngestion/status/targetSummaries": [
+                "{\"id\":\"8a9c3494-9708-43d7-ae3f-cda01e5030e1\",\"status\":\"success\",\"progressPercentage\":100}",
+                "{\"id\":\"aa27ae5d-f0ac-4f87-ab76-9c3dc8de182b\",\"status\":\"success\",\"progressPercentage\":100}"
+              ]
+            },
+            "metrics": {
+              "startTime": 1776173349323,
+              "endTime": 1776173355067,
+              "recordsRead": 602,
+              "recordsWritten": 547,
+              "profileFragments": {
+                "replacedCount": 0,
+                "createdCount": 547,
+                "updatedCount": 0,
+                "deletedCount": 0
+              },
+              "ingestionInsights": {
+                "invalidRecordCounts": {
+                  "ecidInvalid": 0,
+                  "identityPathInvalid": 0,
+                  "identityFormatInvalid": 0,
+                  "idNamespaceCodeNotFound": 0,
+                  "idNotFound": 0,
+                  "invalidContentFormat": 0,
+                  "invalidOrderingTimestamp": 0,
+                  "invalidQualificationTime": 0,
+                  "invalidSegmentMembershipFormat": 0,
+                  "invalidSegmentMembershipNamespace": 0,
+                  "noOrderingTimestampFound": 0,
+                  "noMeaningfulContentUpdates": 0,
+                  "noValidIdentityFound": 0,
+                  "parsingFailed": 0,
+                  "sizeTooLarge": 0,
+                  "timestampNotFound": 0,
+                  "timestampExpired": 55
+                },
+                "writeRejectedRecordCounts": {
+                  "versionRejected": 0,
+                  "skipped": 0,
+                  "upsertTooLarge": 0,
+                  "duplicates": 0
+                },
+                "writtenRecordCounts": {
+                  "created": 547,
+                  "replaced": 0,
+                  "deleted": 0,
+                  "unchanged": 0
+                }
+              }
+            },
+            "created": 1776173315407,
+            "createdClient": "acp_core_ups_ingest_controller",
+            "createdUser": "acp_core_ups_ingest_controller@AdobeService",
+            "updatedUser": "acp_core_ups_ingest_controller@AdobeService",
+            "updated": 1776180784801,
+            "version": "1.0.4"
+          }
+        },
+        "mock": false,
+        "endpoint_path": "/data/foundation/catalog/batches/69de41036e08302b5cc7fd0c",
+        "latency_seconds": 1.7476195999188349,
+        "error_category": "none"
+      }
+    }
+  ],
+  "answer": "SQL evidence was not required or returned no rows. API evidence includes 1 call(s)."
+}

@@ -1,0 +1,49 @@
+{
+  "query": "Provide more details for the schema 'Journey schema with Journey Fields for Journey Orchestration'",
+  "trace": [
+    {
+      "step": 1,
+      "action": "sql_query",
+      "sql": "SELECT S.BLUEPRINTID AS blueprint_id,\n       S.NAME,\n       S.CLASS,\n       S.ISPROFILEENABLED,\n       S.UPDATEDTIME AS updated_time,\n       S.REQUIREDFIELDS AS required_fields,\n       COUNT(DISTINCT SD.COLLECTIONID) AS collection_count,\n       COUNT(DISTINCT SA.PROPERTY) AS property_count\nFROM DIM_BLUEPRINT AS S\nLEFT JOIN HKG_BR_BLUEPRINT_COLLECTION AS SD ON S.BLUEPRINTID = SD.BLUEPRINTID\nLEFT JOIN HKG_BR_BLUEPRINT_PROPERTY AS SA ON S.BLUEPRINTID = SA.BLUEPRINTID\nWHERE LOWER(S.NAME) = LOWER('Journey schema with Journey Fields for Journey Orchestration')\nGROUP BY S.BLUEPRINTID,\n         S.NAME,\n         S.CLASS,\n         S.ISPROFILEENABLED,\n         S.UPDATEDTIME,\n         S.REQUIREDFIELDS\nLIMIT 3",
+      "results": [
+        {
+          "blueprint_id": "7d8fadd777ec103ec2f3f9ca7dd59e495ee45691d893028",
+          "NAME": "Journey schema with Journey Fields for Journey Orchestration",
+          "CLASS": "https://ns.adobe.com/experience/journeyOrchestration/stepEvents/journey",
+          "ISPROFILEENABLED": false,
+          "updated_time": "2026-03-29T07:37:33.000+00:00",
+          "required_fields": "[]",
+          "collection_count": 1,
+          "property_count": 0
+        }
+      ],
+      "status": "success"
+    },
+    {
+      "step": 2,
+      "action": "api_call",
+      "api_call": {
+        "method": "GET",
+        "url": "https://platform.adobe.io/data/foundation/schemaregistry/tenant/schemas",
+        "params": {
+          "limit": "5",
+          "property": "title==Journey schema with Journey Fields for Journey Orchestration"
+        },
+        "status_code": 200,
+        "result_preview": [
+          {
+            "$id": "https://ns.adobe.com/adobepeakprogram/schemas/7d8fadd777ec103ec2f3f9ca7dd59e495ee45691d893028",
+            "meta:altId": "_adobepeakprogram.schemas.7d8fadd777ec103ec2f3f9ca7dd59e495ee45691d893028",
+            "version": "1.0",
+            "title": "Journey schema with Journey Fields for Journey Orchestration"
+          }
+        ],
+        "mock": false,
+        "endpoint_path": "/data/foundation/schemaregistry/tenant/schemas",
+        "latency_seconds": 1.8347538000671193,
+        "error_category": "none"
+      }
+    }
+  ],
+  "answer": "SQL evidence returned 1 row(s): 7d8fadd777ec103ec2f3f9ca7dd59e495ee45691d893028. API evidence includes 1 call(s)."
+}

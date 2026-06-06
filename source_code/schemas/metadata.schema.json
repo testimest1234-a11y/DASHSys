@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["query", "selected_intent", "confidence", "entities", "selected_plan"],
+  "properties": {
+    "query": {"type": "string"},
+    "selected_intent": {"type": "string"},
+    "confidence": {"type": "number"},
+    "entities": {"type": "array"},
+    "relevant_schema": {"type": "object"},
+    "join_paths": {"type": "array"},
+    "candidate_api_endpoints": {"type": "array"},
+    "selected_plan": {"type": "object"}
+  }
+}

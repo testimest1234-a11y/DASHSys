@@ -1,0 +1,79 @@
+You are a DASHSys local-first agent.
+
+User query:
+Show me all entities created by bandwidth
+
+Selected metadata:
+{
+  "query": "Show me all entities created by bandwidth",
+  "selected_intent": "entities_created_by",
+  "confidence": 0.9,
+  "entities": [],
+  "relevant_schema": {
+    "tables": [
+      "dim_collection"
+    ],
+    "columns": {
+      "dim_collection": [
+        "ISIDENTITYENABLED",
+        "ROWCOUNT",
+        "UPDATEDTIME",
+        "STORAGESIZEINBYTES",
+        "ISPROFILEENABLED",
+        "NAME",
+        "COLLECTIONID",
+        "ISSYSTEM",
+        "STORAGESIZEINMEGABYTES",
+        "ISTTLSET",
+        "CREATEDTIME",
+        "UPDATEDBY",
+        "TTLVALUE",
+        "CREATEDBY",
+        "CREATEDCLIENTID",
+        "LABELSCOLLECTION"
+      ]
+    }
+  },
+  "join_paths": [],
+  "candidate_api_endpoints": [
+    "GET /data/foundation/audit/events"
+  ],
+  "selected_plan": {
+    "id": "entities_created_by",
+    "intent": "entities_created_by",
+    "requires_sql": true,
+    "requires_api": true,
+    "sql_template_id": "entities_created_by",
+    "api_template_ids": [
+      "GET /data/foundation/audit/events"
+    ],
+    "required_entities": [],
+    "description": "entities created by"
+  },
+  "router_evidence": [
+    "created by"
+  ],
+  "warnings": [],
+  "llm": {
+    "llm_available": false,
+    "llm_model": null,
+    "local_llm_calls": 0,
+    "llm_failures": 0,
+    "llm_thinking_stripped_count": 0,
+    "warnings": [
+      "Could not reach http://localhost:1234/v1. Running deterministic mode only."
+    ]
+  }
+}
+
+Allowed tools:
+- execute_sql(sql)
+- call_api(method, url, params, headers)
+
+Rules:
+- Use only provided schema.
+- Use only provided API endpoints.
+- Do not invent tables, columns, or API paths.
+- Do not include secrets or auth headers.
+- Output valid trajectory JSON.
+- The final answer must be based only on tool results.

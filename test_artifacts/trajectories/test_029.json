@@ -1,0 +1,77 @@
+{
+  "query": "Show me audiences that are not mapped to any destination and not used in any journey.",
+  "trace": [
+    {
+      "step": 1,
+      "action": "sql_query",
+      "sql": "SELECT s.segmentid AS audience_id,\n       s.name AS audience_name,\n       s.totalmembers AS total_profiles,\n       s.createdtime AS created_time,\n       s.updatedtime AS updated_time\nFROM dim_segment s\nLEFT JOIN hkg_br_segment_target st ON s.segmentid = st.segmentid\nLEFT JOIN br_campaign_segment cs ON s.segmentid = cs.segmentid\nWHERE st.targetid IS NULL\n  AND cs.campaignid IS NULL\nORDER BY s.name",
+      "results": [
+        {
+          "audience_id": "574372f1-7b74-489c-b77f-139024b083a5",
+          "audience_name": "Campaign: 25% Off Purchase Offer Reminder",
+          "total_profiles": 133,
+          "created_time": "2026-03-29T07:52:25.000+00:00",
+          "updated_time": "2026-03-29T07:52:25.000+00:00"
+        },
+        {
+          "audience_id": "7e7b3d71-ae29-4c97-8b24-99905ea6bf68",
+          "audience_name": "Campaign: New Application Credit Card Offer",
+          "total_profiles": 1977,
+          "created_time": "2026-03-29T07:52:17.000+00:00",
+          "updated_time": "2026-03-29T07:52:17.000+00:00"
+        },
+        {
+          "audience_id": "38bdeb6d-1788-46e9-b68e-ac10b68640d9",
+          "audience_name": "Email Opt-In",
+          "total_profiles": 5878,
+          "created_time": "2026-03-29T07:52:03.000+00:00",
+          "updated_time": "2026-03-29T07:52:03.000+00:00"
+        },
+        {
+          "audience_id": "283f4eab-183b-40b9-bc07-3c92cbad824c",
+          "audience_name": "Gender: Female",
+          "total_profiles": 5896,
+          "created_time": "2026-03-29T07:51:58.000+00:00",
+          "updated_time": "2026-03-29T07:51:58.000+00:00"
+        },
+        {
+          "audience_id": "2fdfefe1-04d0-46ce-9fbd-7611e311dd26",
+          "audience_name": "Person: Birthday Today 001",
+          "total_profiles": 0,
+          "created_time": "2026-04-05T04:33:25.000+00:00",
+          "updated_time": "2026-04-05T04:33:25.000+00:00"
+        },
+        {
+          "audience_id": "c6691f4b-ba38-4308-8364-593d23a6a09f",
+          "audience_name": "Person: Birthday in next 30 Days",
+          "total_profiles": 0,
+          "created_time": "2026-03-29T07:51:37.000+00:00",
+          "updated_time": "2026-03-29T07:51:37.000+00:00"
+        },
+        {
+          "audience_id": "9dd9537e-b948-457c-a63d-b47382b2ae36",
+          "audience_name": "Person: Birthday this month",
+          "total_profiles": 0,
+          "created_time": "2026-03-29T07:51:32.000+00:00",
+          "updated_time": "2026-03-29T07:51:32.000+00:00"
+        },
+        {
+          "audience_id": "f2a200b1-5d0a-4c9b-9202-4d34326cd9df",
+          "audience_name": "Person: Birthday today",
+          "total_profiles": 0,
+          "created_time": "2026-03-29T07:51:23.000+00:00",
+          "updated_time": "2026-03-29T07:51:23.000+00:00"
+        },
+        {
+          "audience_id": "78acb3db-39ef-4be9-aa24-b62d82293136",
+          "audience_name": "SMS Opt-In",
+          "total_profiles": 5873,
+          "created_time": "2026-03-29T07:52:08.000+00:00",
+          "updated_time": "2026-03-29T07:52:08.000+00:00"
+        }
+      ],
+      "status": "success"
+    }
+  ],
+  "answer": "SQL evidence returned 9 row(s): 574372f1-7b74-489c-b77f-139024b083a5, 7e7b3d71-ae29-4c97-8b24-99905ea6bf68, 38bdeb6d-1788-46e9-b68e-ac10b68640d9, 283f4eab-183b-40b9-bc07-3c92cbad824c, 2fdfefe1-04d0-46ce-9fbd-7611e311dd26."
+}

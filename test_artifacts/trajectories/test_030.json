@@ -1,0 +1,13 @@
+{
+  "query": "Which audiences are used in more than one journey?",
+  "trace": [
+    {
+      "step": 1,
+      "action": "sql_query",
+      "sql": "SELECT s.segmentid AS audience_id,\n       s.name AS audience_name,\n       COUNT(DISTINCT c.campaignid) AS journey_count,\n       string_agg(DISTINCT c.name, ', ') AS journey_names\nFROM dim_segment s\nJOIN br_campaign_segment cs ON s.segmentid = cs.segmentid\nJOIN dim_campaign c ON cs.campaignid = c.campaignid\nGROUP BY s.segmentid, s.name\nHAVING COUNT(DISTINCT c.campaignid) > 1\nORDER BY journey_count DESC, audience_name",
+      "results": [],
+      "status": "success"
+    }
+  ],
+  "answer": "No SQL evidence was available."
+}

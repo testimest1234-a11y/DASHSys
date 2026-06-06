@@ -1,0 +1,39 @@
+{
+  "query": "Show failed files for batch 69de8a0e0cc6102b5d11f01e.",
+  "trace": [
+    {
+      "step": 1,
+      "action": "api_call",
+      "api_call": {
+        "method": "GET",
+        "url": "https://platform.adobe.io/data/foundation/export/batches/69de8a0e0cc6102b5d11f01e/files",
+        "params": {
+          "status": "failed"
+        },
+        "status_code": 200,
+        "result_preview": {
+          "data": [
+            {
+              "dataSetFileId": "69de8a0e0cc6102b5d11f01e-DE1",
+              "isValid": false,
+              "_links": {
+                "self": {
+                  "href": "https://platform.adobe.io:443/data/foundation/export/files/69de8a0e0cc6102b5d11f01e-DE1"
+                }
+              }
+            }
+          ],
+          "_page": {
+            "limit": 100,
+            "count": 1
+          }
+        },
+        "mock": false,
+        "endpoint_path": "/data/foundation/export/batches/69de8a0e0cc6102b5d11f01e/files",
+        "latency_seconds": 2.193552300101146,
+        "error_category": "none"
+      }
+    }
+  ],
+  "answer": "SQL evidence was not required or returned no rows. API evidence includes 1 call(s)."
+}

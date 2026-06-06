@@ -1,0 +1,96 @@
+You are a DASHSys local-first agent.
+
+User query:
+When was the journey 'Gold Tier Welcome Email' published?
+
+Selected metadata:
+{
+  "query": "When was the journey 'Gold Tier Welcome Email' published?",
+  "selected_intent": "journey_published_time",
+  "confidence": 0.95,
+  "entities": [
+    {
+      "raw_text": "Gold Tier Welcome Email",
+      "matched_table": "dim_campaign",
+      "matched_column": "NAME",
+      "matched_value": "Gold Tier Welcome Email",
+      "score": 100.0,
+      "match_type": "exact"
+    }
+  ],
+  "relevant_schema": {
+    "tables": [
+      "dim_campaign"
+    ],
+    "columns": {
+      "dim_campaign": [
+        "_ACP_SYSTEM_METADATA",
+        "UPDATEDTIME",
+        "STARTDATE",
+        "LABELSCAMPAIGN",
+        "IMSORGID",
+        "LASTDEPLOYEDTIME",
+        "STATE",
+        "ISSCHEDULED",
+        "ISRECURRING",
+        "CAMPAIGNTYPE",
+        "STOPPEDTIME",
+        "FINISHEDTIME",
+        "SEMANTICLABELS",
+        "SANDBOXNAME",
+        "NAME",
+        "SANDBOXID",
+        "STATUS",
+        "INTEST",
+        "CAMPAIGNID",
+        "CAMPAIGNACTIVITYCOUNT",
+        "CREATEDTIME"
+      ]
+    }
+  },
+  "join_paths": [],
+  "candidate_api_endpoints": [
+    "GET /ajo/journey"
+  ],
+  "selected_plan": {
+    "id": "journey_published_time",
+    "intent": "journey_published_time",
+    "requires_sql": true,
+    "requires_api": true,
+    "sql_template_id": "journey_published_time",
+    "api_template_ids": [
+      "GET /ajo/journey"
+    ],
+    "required_entities": [
+      "journey"
+    ],
+    "description": "journey published time"
+  },
+  "router_evidence": [
+    "published",
+    "journey"
+  ],
+  "warnings": [],
+  "llm": {
+    "llm_available": false,
+    "llm_model": null,
+    "local_llm_calls": 0,
+    "llm_failures": 0,
+    "llm_thinking_stripped_count": 0,
+    "warnings": [
+      "Could not reach http://localhost:1234/v1. Running deterministic mode only."
+    ]
+  }
+}
+
+Allowed tools:
+- execute_sql(sql)
+- call_api(method, url, params, headers)
+
+Rules:
+- Use only provided schema.
+- Use only provided API endpoints.
+- Do not invent tables, columns, or API paths.
+- Do not include secrets or auth headers.
+- Output valid trajectory JSON.
+- The final answer must be based only on tool results.

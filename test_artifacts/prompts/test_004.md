@@ -1,0 +1,128 @@
+You are a DASHSys local-first agent.
+
+User query:
+List all segment audiences connected to the destination named 'Person: Birthday today', showing audienceId, name, totalProfiles, createdTime, updatedTime, and used in other audience count for each audience. Remove any row limit from the results.
+
+Selected metadata:
+{
+  "query": "List all segment audiences connected to the destination named 'Person: Birthday today', showing audienceId, name, totalProfiles, createdTime, updatedTime, and used in other audience count for each audience. Remove any row limit from the results.",
+  "selected_intent": "segments_for_destination",
+  "confidence": 0.92,
+  "entities": [
+    {
+      "raw_text": "Person: Birthday today",
+      "matched_table": "dim_segment",
+      "matched_column": "NAME",
+      "matched_value": "Person: Birthday today",
+      "score": 100.0,
+      "match_type": "exact"
+    }
+  ],
+  "relevant_schema": {
+    "tables": [
+      "dim_segment",
+      "hkg_br_segment_target",
+      "dim_target"
+    ],
+    "columns": {
+      "dim_segment": [
+        "DEFINITION",
+        "SEGMENTID",
+        "UPDATEDTIME",
+        "ISEDGE",
+        "TTLINDAYS",
+        "SEGMENTBLUEPRINTCLASS",
+        "DEFINITIONHASH",
+        "ISPEOPLESEGMENT",
+        "ISACCOUNTSEGMENT",
+        "NAME",
+        "EVALUATIONCOMPLETEDTIME",
+        "TOTALMEMBERS",
+        "LABELSSEGMENT",
+        "ISSTREAMING",
+        "LIFECYCLESTATUS",
+        "ISBATCH",
+        "CREATEDTIME",
+        "TYPE",
+        "MERGEPOLICYID"
+      ],
+      "hkg_br_segment_target": [
+        "SEGMENTID",
+        "LABELSSEGMENT",
+        "LABELSTARGET",
+        "TARGETID"
+      ],
+      "dim_target": [
+        "DATAFLOWNAME",
+        "INTERVAL",
+        "UPDATEDTIME",
+        "DESCRIPTION",
+        "FREQUENCY",
+        "LABELSTARGET",
+        "STATE",
+        "TARGETID",
+        "CREATEDTIME",
+        "CONNECTIONSPECID",
+        "NAME"
+      ]
+    }
+  },
+  "join_paths": [
+    {
+      "left_table": "dim_segment",
+      "left_key": "labelssegment",
+      "bridge_table": "hkg_br_segment_target",
+      "bridge_left_key": "LABELSSEGMENT",
+      "right_table": "dim_target",
+      "right_key": "labelstarget",
+      "bridge_right_key": "LABELSTARGET",
+      "confidence": 1.0
+    }
+  ],
+  "candidate_api_endpoints": [
+    "GET /data/core/ups/audiences",
+    "GET /data/foundation/flowservice/flows"
+  ],
+  "selected_plan": {
+    "id": "segments_for_destination",
+    "intent": "segments_for_destination",
+    "requires_sql": true,
+    "requires_api": true,
+    "sql_template_id": "segments_for_destination",
+    "api_template_ids": [
+      "GET /data/core/ups/audiences",
+      "GET /data/foundation/flowservice/flows"
+    ],
+    "required_entities": [
+      "destination"
+    ],
+    "description": "segments for destination"
+  },
+  "router_evidence": [
+    "audience",
+    "destination"
+  ],
+  "warnings": [],
+  "llm": {
+    "llm_available": false,
+    "llm_model": null,
+    "local_llm_calls": 0,
+    "llm_failures": 0,
+    "llm_thinking_stripped_count": 0,
+    "warnings": [
+      "Could not reach http://localhost:1234/v1. Running deterministic mode only."
+    ]
+  }
+}
+
+Allowed tools:
+- execute_sql(sql)
+- call_api(method, url, params, headers)
+
+Rules:
+- Use only provided schema.
+- Use only provided API endpoints.
+- Do not invent tables, columns, or API paths.
+- Do not include secrets or auth headers.
+- Output valid trajectory JSON.
+- The final answer must be based only on tool results.

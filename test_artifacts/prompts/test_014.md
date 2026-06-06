@@ -1,0 +1,108 @@
+You are a DASHSys local-first agent.
+
+User query:
+Provide more details for the schema 'Journey schema with Journey Fields for Journey Orchestration'
+
+Selected metadata:
+{
+  "query": "Provide more details for the schema 'Journey schema with Journey Fields for Journey Orchestration'",
+  "selected_intent": "schema_details",
+  "confidence": 0.9,
+  "entities": [
+    {
+      "raw_text": "Journey schema with Journey Fields for Journey Orchestration",
+      "matched_table": "dim_blueprint",
+      "matched_column": "NAME",
+      "matched_value": " XDM Schema for dataset qsaccel.profile_agg.adwh_lkup_process_delta_log. Random identifier: 5044463a-77e9-431a-b497-627cf5daeb1c",
+      "score": 85.5,
+      "match_type": "fuzzy"
+    }
+  ],
+  "relevant_schema": {
+    "tables": [
+      "dim_blueprint",
+      "hkg_br_blueprint_collection",
+      "hkg_br_blueprint_property"
+    ],
+    "columns": {
+      "dim_blueprint": [
+        "BLUEPRINTTYPE",
+        "EXTENDS",
+        "UPDATEDCLIENTID",
+        "LABELSBLUEPRINT",
+        "UPDATEDTIME",
+        "CLASS",
+        "BLUEPRINTID",
+        "IMMUTABLETAGS",
+        "TENANT",
+        "ISPROFILEENABLED",
+        "NAME",
+        "ISBEHAVIORTIMESERIESTYPE",
+        "DESCRIPTION",
+        "ETAG",
+        "REQUIREDFIELDS",
+        "ISBEHAVIORRECORDTYPE",
+        "CREATEDTIME",
+        "UPDATEDBY",
+        "CREATEDBY",
+        "CREATEDCLIENTID"
+      ],
+      "hkg_br_blueprint_collection": [
+        "COLLECTIONID",
+        "LABELSBLUEPRINT",
+        "BLUEPRINTID",
+        "LABELSCOLLECTION"
+      ],
+      "hkg_br_blueprint_property": [
+        "LABELSBLUEPRINT",
+        "PROPERTY",
+        "BLUEPRINTID",
+        "LABELSPROPERTY"
+      ]
+    }
+  },
+  "join_paths": [],
+  "candidate_api_endpoints": [
+    "GET /schemas"
+  ],
+  "selected_plan": {
+    "id": "schema_details",
+    "intent": "schema_details",
+    "requires_sql": true,
+    "requires_api": true,
+    "sql_template_id": "schema_details",
+    "api_template_ids": [
+      "GET /schemas"
+    ],
+    "required_entities": [
+      "schema"
+    ],
+    "description": "schema details"
+  },
+  "router_evidence": [
+    "schema details"
+  ],
+  "warnings": [],
+  "llm": {
+    "llm_available": false,
+    "llm_model": null,
+    "local_llm_calls": 0,
+    "llm_failures": 0,
+    "llm_thinking_stripped_count": 0,
+    "warnings": [
+      "Could not reach http://localhost:1234/v1. Running deterministic mode only."
+    ]
+  }
+}
+
+Allowed tools:
+- execute_sql(sql)
+- call_api(method, url, params, headers)
+
+Rules:
+- Use only provided schema.
+- Use only provided API endpoints.
+- Do not invent tables, columns, or API paths.
+- Do not include secrets or auth headers.
+- Output valid trajectory JSON.
+- The final answer must be based only on tool results.

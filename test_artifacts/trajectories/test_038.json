@@ -1,0 +1,74 @@
+{
+  "query": "List properties not referenced in any audience, journey, or destination.",
+  "trace": [
+    {
+      "step": 1,
+      "action": "sql_query",
+      "sql": "SELECT p.property AS property_name,\n       p.type AS property_type,\n       p.altdisplaytitle AS display_title\nFROM dim_property p\nLEFT JOIN hkg_br_segment_property sp ON p.property = sp.property\nLEFT JOIN hkg_br_target_property tp ON p.property = tp.property\nWHERE sp.segmentid IS NULL\n  AND tp.targetid IS NULL\nORDER BY p.property\nLIMIT 50",
+      "results": [
+        {
+          "property_name": "_adobepeakprogram.cobrandedCreditCardHolder",
+          "property_type": "string",
+          "display_title": ""
+        },
+        {
+          "property_name": "_adobepeakprogram.retailStoreActionDetailsEE.xEvent",
+          "property_type": "string",
+          "display_title": ""
+        },
+        {
+          "property_name": "consents.marketing.push.val",
+          "property_type": "string",
+          "display_title": ""
+        },
+        {
+          "property_name": "eventType",
+          "property_type": "string",
+          "display_title": ""
+        },
+        {
+          "property_name": "homeAddress.city",
+          "property_type": "string",
+          "display_title": ""
+        },
+        {
+          "property_name": "homeAddress.country",
+          "property_type": "string",
+          "display_title": ""
+        },
+        {
+          "property_name": "homeAddress.postalCode",
+          "property_type": "string",
+          "display_title": ""
+        },
+        {
+          "property_name": "identityMap.ECID",
+          "property_type": "string",
+          "display_title": ""
+        },
+        {
+          "property_name": "identityMap.ECID",
+          "property_type": "string",
+          "display_title": ""
+        },
+        {
+          "property_name": "identityMap.Email",
+          "property_type": "string",
+          "display_title": ""
+        },
+        {
+          "property_name": "mobilePhone.number",
+          "property_type": "string",
+          "display_title": ""
+        },
+        {
+          "property_name": "person.name.lastName",
+          "property_type": "string",
+          "display_title": ""
+        }
+      ],
+      "status": "success"
+    }
+  ],
+  "answer": "SQL evidence returned 12 row(s): _adobepeakprogram.cobrandedCreditCardHolder, _adobepeakprogram.retailStoreActionDetailsEE.xEvent, consents.marketing.push.val, eventType, homeAddress.city."
+}

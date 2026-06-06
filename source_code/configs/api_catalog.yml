@@ -1,0 +1,107 @@
+endpoints:
+  ajo_journey:
+    method: GET
+    path: /ajo/journey
+    allowed_params: [filter, pageSize, limit]
+    description: Journey Optimizer journeys
+  ups_audiences:
+    method: GET
+    path: /data/core/ups/audiences
+    allowed_params: [property, limit, page, name]
+    description: Unified Profile Service audiences
+  flowservice_flows:
+    method: GET
+    path: /data/foundation/flowservice/flows
+    allowed_params: [property, filter, limit, sort]
+    description: Flow Service flows
+  catalog_datasets:
+    method: GET
+    path: /data/foundation/catalog/dataSets
+    allowed_params: [limit, property, filter]
+    description: Catalog datasets
+  catalog_datasets_lower:
+    method: GET
+    path: /data/foundation/catalog/datasets
+    allowed_params: [limit, property, filter]
+    description: Catalog datasets lowercase compatibility
+  catalog_batches:
+    method: GET
+    path: /data/foundation/catalog/batches
+    allowed_params: [limit, property, orderBy, status]
+    description: Catalog batches
+  catalog_batch_detail:
+    method: GET
+    path: /data/foundation/catalog/batches/{batch_id}
+    allowed_params: []
+    description: Catalog batch detail
+  export_batch_files:
+    method: GET
+    path: /data/foundation/export/batches/{batch_id}/files
+    allowed_params: [limit, status]
+    description: Batch export files
+  export_batch_failed:
+    method: GET
+    path: /data/foundation/export/batches/{batch_id}/failed
+    allowed_params: []
+    description: Failed batch export files
+  schema_registry_schemas:
+    method: GET
+    path: /data/foundation/schemaregistry/tenant/schemas
+    allowed_params: [limit, property, filter]
+    description: Schema Registry tenant schemas
+  schema_registry_schema_detail:
+    method: GET
+    path: /data/foundation/schemaregistry/tenant/schemas/{schema_id}
+    allowed_params: []
+    description: Schema Registry schema detail
+  schemas_short:
+    method: GET
+    path: /schemas
+    allowed_params: [limit, filter]
+    description: Sample schema shortcut endpoint
+  audit_events:
+    method: GET
+    path: /data/foundation/audit/events
+    allowed_params: [property, limit, orderBy]
+    description: Audit events
+  audit_events_short:
+    method: GET
+    path: /audit/events
+    allowed_params: [property, limit, orderBy]
+    description: Audit events shortcut
+  tags:
+    method: GET
+    path: /unifiedtags/tags
+    allowed_params: [limit, tagCategoryId]
+    description: Unified tags
+  tag_detail:
+    method: GET
+    path: /unifiedtags/tags/{tag_id}
+    allowed_params: []
+    description: Unified tag detail
+  tag_categories:
+    method: GET
+    path: /unifiedtags/tagCategory
+    allowed_params: [limit]
+    description: Unified tag categories
+  merge_policies:
+    method: GET
+    path: /data/core/ups/config/mergePolicies
+    allowed_params: [limit]
+    description: UPS merge policies
+  segment_definitions:
+    method: GET
+    path: /data/core/ups/segment/definitions
+    allowed_params: [limit, orderBy]
+    description: Segment definitions
+  segment_jobs:
+    method: GET
+    path: /data/core/ups/segment/jobs
+    allowed_params: [limit]
+    description: Segment jobs
+  observability_metrics:
+    method: POST
+    path: /data/infrastructure/observability/insights/metrics
+    allowed_params: []
+    allowed_body: true
+    description: Observability metrics

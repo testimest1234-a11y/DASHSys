@@ -1,0 +1,127 @@
+{
+  "query": "Show failed files for batch 01KP69BPA5ZKFB7HCDYPE4GN6F.",
+  "trace": [
+    {
+      "step": 1,
+      "action": "api_call",
+      "api_call": {
+        "method": "GET",
+        "url": "https://platform.adobe.io/data/foundation/export/batches/01KP69BPA5ZKFB7HCDYPE4GN6F/files",
+        "params": {
+          "status": "failed"
+        },
+        "status_code": 404,
+        "result_preview": {
+          "type": "DTAC-4045",
+          "status": 404,
+          "title": "Batch not found",
+          "detail": "Batch not found in Catalog",
+          "additionalDetails": {}
+        },
+        "mock": false,
+        "message": "{\"type\":\"DTAC-4045\",\"status\":404,\"title\":\"Batch not found\",\"detail\":\"Batch not found in Catalog\",\"additionalDetails\":{\"requestId\":null}}",
+        "endpoint_path": "/data/foundation/export/batches/01KP69BPA5ZKFB7HCDYPE4GN6F/files",
+        "latency_seconds": 1.7436068000970408,
+        "error_category": "endpoint_or_sandbox_data",
+        "edge_case_category": "API_UNAVAILABLE_DUE_TO_ENTITY_STATE",
+        "edge_case_handled": true,
+        "edge_case_evidence": {
+          "category": "API_UNAVAILABLE_DUE_TO_ENTITY_STATE",
+          "entity_type": "batch",
+          "entity_id": "01KP69BPA5ZKFB7HCDYPE4GN6F",
+          "entity_state": "inactive",
+          "primary_endpoint_path": "/data/foundation/export/batches/01KP69BPA5ZKFB7HCDYPE4GN6F/files",
+          "primary_status_code": 404,
+          "supporting_endpoint_path": "/data/foundation/catalog/batches/01KP69BPA5ZKFB7HCDYPE4GN6F",
+          "supporting_status_code": 200,
+          "conclusion": "The batch exists in Catalog, but its state prevents the requested Data Access or diagnostics operation from being listed."
+        }
+      }
+    },
+    {
+      "step": 2,
+      "action": "api_call",
+      "api_call": {
+        "method": "GET",
+        "url": "https://platform.adobe.io/data/foundation/catalog/batches/01KP69BPA5ZKFB7HCDYPE4GN6F",
+        "params": {},
+        "status_code": 200,
+        "result_preview": {
+          "01KP69BPA5ZKFB7HCDYPE4GN6F": {
+            "status": "inactive",
+            "tags": {
+              "acp_stagePath": [
+                "acp_core_unifiedProfile_export/stage/01KP69BPA5ZKFB7HCDYPE4GN6F"
+              ],
+              "acp_requestType": [
+                "service"
+              ],
+              "update_phantom_batch": [
+                "true"
+              ],
+              "acp_dataSetViewId": [
+                "69c8d6c9b9966265fc8e4ea4"
+              ],
+              "acp_type": [
+                "replay"
+              ],
+              "acp_producer": [
+                "acp_core_unifiedProfile_export",
+                "aep/siphon/bi/uploadMode::"
+              ]
+            },
+            "relatedObjects": [
+              {
+                "type": "dataSet",
+                "id": "69c8d6c9b9966265fc8e4ea4",
+                "status": "inactive"
+              }
+            ],
+            "id": "01KP69BPA5ZKFB7HCDYPE4GN6F",
+            "externalId": "01KP69BPA5ZKFB7HCDYPE4GN6F",
+            "replay": {
+              "predecessors": [
+                "01KP3PZ4XWKTAK6GZ6P780TGHG"
+              ],
+              "reason": "replay",
+              "predecessorListingType": "IMMEDIATE"
+            },
+            "inputFormat": {
+              "format": "parquet"
+            },
+            "createdUser": "acp_core_unifiedProfile_export@AdobeID",
+            "imsOrg": "[REDACTED]",
+            "sandboxId": "a30a9c4e-327a-4d60-8a9c-4e327a6d60dd",
+            "completed": 1776181013003,
+            "metrics": {
+              "numFiles": 10,
+              "psdkComputedUpdatesCount": 0,
+              "numCopiedRows": 0,
+              "outputByteSize": 101744,
+              "psdkComputedDeletesCount": -1,
+              "numDeletedRows": 13,
+              "psdkComputedInsertsCount": 13,
+              "numOutputRows": 13,
+              "numOutputBytes": 101744,
+              "inputByteSize": 101744,
+              "outputRecordCount": 13,
+              "outputFileCount": 10,
+              "inputRecordCount": 13
+            },
+            "created": 1776180124177,
+            "createdClient": "acp_foundation_push",
+            "updatedUser": "acp_foundation_dataTracker@AdobeID",
+            "updated": 1776267278994,
+            "version": "1.0.2"
+          }
+        },
+        "mock": false,
+        "endpoint_path": "/data/foundation/catalog/batches/01KP69BPA5ZKFB7HCDYPE4GN6F",
+        "latency_seconds": 1.7044799999566749,
+        "error_category": "none",
+        "edge_case_supporting_evidence": true
+      }
+    }
+  ],
+  "answer": "Batch 01KP69BPA5ZKFB7HCDYPE4GN6F exists in Catalog, but it is inactive. Because of this state, failed-file retrieval is not available through the Data Access API. Therefore, the system cannot list failed files for this batch; this is an expected entity-state limitation rather than a missing batch."
+}

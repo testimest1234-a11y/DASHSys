@@ -1,0 +1,21 @@
+{
+  "query": "Is the audience 'Person: Birthday in next 30 Days' referenced in more than one journey simultaneously?",
+  "trace": [
+    {
+      "step": 1,
+      "action": "sql_query",
+      "sql": "WITH target_audience AS (\n    SELECT segmentid, name\n    FROM dim_segment\n    WHERE LOWER(name) = LOWER('Person: Birthday in next 30 Days')\n)\nSELECT a.segmentid AS audience_id,\n       a.name AS audience_name,\n       COUNT(DISTINCT c.campaignid) AS journey_count,\n       string_agg(DISTINCT c.name, ', ') AS journey_names,\n       COUNT(DISTINCT c.campaignid) > 1 AS referenced_in_more_than_one_journey\nFROM target_audience a\nLEFT JOIN br_campaign_segment cs ON a.segmentid = cs.segmentid\nLEFT JOIN dim_campaign c ON cs.campaignid = c.campaignid\nGROUP BY a.segmentid, a.name",
+      "results": [
+        {
+          "audience_id": "c6691f4b-ba38-4308-8364-593d23a6a09f",
+          "audience_name": "Person: Birthday in next 30 Days",
+          "journey_count": 0,
+          "journey_names": null,
+          "referenced_in_more_than_one_journey": false
+        }
+      ],
+      "status": "success"
+    }
+  ],
+  "answer": "SQL evidence returned 1 row(s): c6691f4b-ba38-4308-8364-593d23a6a09f."
+}

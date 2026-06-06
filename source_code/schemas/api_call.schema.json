@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["method", "url", "params", "status_code", "result_preview"],
+  "properties": {
+    "method": {"type": "string"},
+    "url": {"type": "string"},
+    "params": {"type": "object"},
+    "body": {},
+    "status_code": {"type": "integer"},
+    "result_preview": {},
+    "total": {"type": "integer"},
+    "mock": {"type": "boolean"}
+  }
+}

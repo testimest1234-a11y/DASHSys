@@ -1,0 +1,35 @@
+{
+  "query": "When was the journey 'Gold Tier Welcome Email' published?",
+  "trace": [
+    {
+      "step": 1,
+      "action": "sql_query",
+      "sql": "SELECT name AS campaign_name,\n       lastdeployedtime AS published_time\nFROM dim_campaign\nWHERE name = 'Gold Tier Welcome Email'\nLIMIT 50",
+      "results": [
+        {
+          "campaign_name": "Gold Tier Welcome Email",
+          "published_time": null
+        }
+      ],
+      "status": "success"
+    },
+    {
+      "step": 2,
+      "action": "api_call",
+      "api_call": {
+        "method": "GET",
+        "url": "https://platform.adobe.io/ajo/journey",
+        "params": {
+          "filter": "name==Gold Tier Welcome Email"
+        },
+        "status_code": 200,
+        "result_preview": [],
+        "mock": false,
+        "endpoint_path": "/ajo/journey",
+        "latency_seconds": 2.6718655999284238,
+        "error_category": "none"
+      }
+    }
+  ],
+  "answer": "SQL evidence returned 1 row(s): Gold Tier Welcome Email. API evidence includes 1 call(s)."
+}

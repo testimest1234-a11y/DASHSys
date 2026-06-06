@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["query", "trace", "answer"],
+  "properties": {
+    "query": {"type": "string", "minLength": 1},
+    "trace": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["step", "action"],
+        "properties": {
+          "step": {"type": "integer", "minimum": 1},
+          "action": {"enum": ["sql_query", "api_call"]},
+          "sql": {"type": "string"},
+          "results": {"type": "array"},
+          "status": {"type": "string"},
+          "api_call": {"type": "object"}
+        }
+      }
+    },
+    "answer": {"type": "string", "minLength": 1}
+  }
+}

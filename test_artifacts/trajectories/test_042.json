@@ -1,0 +1,89 @@
+{
+  "query": "Show the default merge policy for schema class '_xdm.context.segmentdefinition'.",
+  "trace": [
+    {
+      "step": 1,
+      "action": "api_call",
+      "api_call": {
+        "method": "GET",
+        "url": "https://platform.adobe.io/data/core/ups/config/mergePolicies",
+        "params": {
+          "limit": "5"
+        },
+        "status_code": 200,
+        "result_preview": {
+          "_page": {
+            "totalCount": 2,
+            "totalPages": 1,
+            "pageSize": 2,
+            "limit": 5,
+            "start": "0",
+            "pageOffset": "0"
+          },
+          "children": [
+            {
+              "id": "22a941a9-e598-45f8-846b-c9a8889f5035",
+              "sandbox": {
+                "sandboxId": "a30a9c4e-327a-4d60-8a9c-4e327a6d60dd",
+                "sandboxName": "external-benchmarking",
+                "type": "production",
+                "default": false
+              },
+              "imsOrgId": "[REDACTED]",
+              "name": "Default Timebased",
+              "schema": {
+                "name": "_xdm.context.profile"
+              },
+              "version": 1,
+              "identityGraph": {
+                "type": "pdg"
+              },
+              "attributeMerge": {
+                "type": "timestampOrdered"
+              },
+              "updateEpoch": 1774770769,
+              "systemDataSets": [],
+              "isActiveOnEdge": true,
+              "default": true,
+              "_etag": "0bc966f6-b21b-4822-a914-a9d988250583"
+            },
+            {
+              "id": "544a2f53-0bec-48d2-8d6f-6beffdcbf8d8",
+              "sandbox": {
+                "sandboxId": "a30a9c4e-327a-4d60-8a9c-4e327a6d60dd",
+                "sandboxName": "external-benchmarking",
+                "type": "production",
+                "default": false
+              },
+              "imsOrgId": "[REDACTED]",
+              "name": "Default Timebased",
+              "schema": {
+                "name": "_xdm.context.segmentdefinition"
+              },
+              "version": 1,
+              "identityGraph": {
+                "type": "none"
+              },
+              "attributeMerge": {
+                "type": "timestampOrdered"
+              },
+              "updateEpoch": 1774769864,
+              "systemDataSets": [],
+              "isActiveOnEdge": false,
+              "default": true,
+              "_etag": "9b9d5572-2df5-4811-9e17-8d907fdf34f0"
+            }
+          ],
+          "_links": {
+            "next": {}
+          }
+        },
+        "mock": false,
+        "endpoint_path": "/data/core/ups/config/mergePolicies",
+        "latency_seconds": 1.6449170000851154,
+        "error_category": "none"
+      }
+    }
+  ],
+  "answer": "SQL evidence was not required or returned no rows. API evidence includes 1 call(s)."
+}

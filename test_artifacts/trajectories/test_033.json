@@ -1,0 +1,23 @@
+{
+  "query": "For the audience 'Gender: Female', what is its profile count, is it batch or streaming, and how many audiences share the same rule definition?",
+  "trace": [
+    {
+      "step": 1,
+      "action": "sql_query",
+      "sql": "WITH target_audience AS (\n    SELECT segmentid,\n           name,\n           totalmembers,\n           isbatch,\n           isstreaming,\n           definitionhash\n    FROM dim_segment\n    WHERE LOWER(name) = LOWER('Gender: Female')\n),\ndefinition_counts AS (\n    SELECT definitionhash,\n           COUNT(*) AS audiences_with_same_rule_definition\n    FROM dim_segment\n    WHERE definitionhash IS NOT NULL\n    GROUP BY definitionhash\n)\nSELECT a.segmentid AS audience_id,\n       a.name AS audience_name,\n       a.totalmembers AS profile_count,\n       a.isbatch AS is_batch,\n       a.isstreaming AS is_streaming,\n       a.definitionhash AS definition_hash,\n       COALESCE(dc.audiences_with_same_rule_definition, 0) AS audiences_with_same_rule_definition\nFROM target_audience a\nLEFT JOIN definition_counts dc ON a.definitionhash = dc.definitionhash",
+      "results": [
+        {
+          "audience_id": "283f4eab-183b-40b9-bc07-3c92cbad824c",
+          "audience_name": "Gender: Female",
+          "profile_count": 5896,
+          "is_batch": true,
+          "is_streaming": false,
+          "definition_hash": 4044831472,
+          "audiences_with_same_rule_definition": 1
+        }
+      ],
+      "status": "success"
+    }
+  ],
+  "answer": "SQL evidence returned 1 row(s): 283f4eab-183b-40b9-bc07-3c92cbad824c."
+}

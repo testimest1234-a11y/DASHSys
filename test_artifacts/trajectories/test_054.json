@@ -1,0 +1,492 @@
+{
+  "query": "What are the daily 'timeseries.ingestion.dataset.size' values between '2026-03-01' and '2026-12-31'?",
+  "trace": [
+    {
+      "step": 1,
+      "action": "api_call",
+      "api_call": {
+        "method": "POST",
+        "url": "https://platform.adobe.io/data/infrastructure/observability/insights/metrics",
+        "params": {},
+        "status_code": 200,
+        "result_preview": {
+          "metricResponses": [
+            {
+              "metric": "timeseries.ingestion.dataset.size",
+              "filters": [],
+              "datapoints": [
+                {
+                  "groupByKeySignature": "",
+                  "groupBy": {},
+                  "dps": {
+                    "2026-03-26T00:00:00Z": 0.0,
+                    "2026-03-07T00:00:00Z": 0.0,
+                    "2026-03-05T00:00:00Z": 0.0,
+                    "2026-03-18T00:00:00Z": 0.0,
+                    "2026-03-13T00:00:00Z": 0.0,
+                    "2026-03-17T00:00:00Z": 0.0,
+                    "2026-03-04T00:00:00Z": 0.0,
+                    "2026-03-21T00:00:00Z": 0.0,
+                    "2026-03-02T00:00:00Z": 0.0,
+                    "2026-03-15T00:00:00Z": 0.0,
+                    "2026-03-28T00:00:00Z": 0.0,
+                    "2026-03-23T00:00:00Z": 0.0,
+                    "2026-03-09T00:00:00Z": 0.0,
+                    "2026-03-10T00:00:00Z": 0.0,
+                    "2026-03-31T00:00:00Z": 567117.0,
+                    "2026-03-08T00:00:00Z": 0.0,
+                    "2026-03-12T00:00:00Z": 0.0,
+                    "2026-03-14T00:00:00Z": 0.0,
+                    "2026-03-27T00:00:00Z": 0.0,
+                    "2026-03-19T00:00:00Z": 0.0,
+                    "2026-03-25T00:00:00Z": 0.0,
+                    "2026-03-06T00:00:00Z": 0.0,
+                    "2026-04-01T00:00:00Z": 512842.0,
+                    "2026-03-20T00:00:00Z": 0.0,
+                    "2026-03-22T00:00:00Z": 0.0,
+                    "2026-03-24T00:00:00Z": 0.0,
+                    "2026-03-11T00:00:00Z": 0.0,
+                    "2026-03-29T00:00:00Z": 45403401.0,
+                    "2026-03-16T00:00:00Z": 0.0,
+                    "2026-03-03T00:00:00Z": 0.0,
+                    "2026-03-30T00:00:00Z": 9137462.0
+                  }
+                }
+              ],
+              "granularity": "DAY",
+              "entrypoint": null
+            }
+          ]
+        },
+        "mock": false,
+        "body": {
+          "start": "2026-03-01T00:00:00.000Z",
+          "end": "2026-04-01T23:59:59.000Z",
+          "granularity": "day",
+          "metrics": [
+            {
+              "name": "timeseries.ingestion.dataset.size",
+              "filters": [],
+              "aggregator": "sum"
+            }
+          ]
+        },
+        "endpoint_path": "/data/infrastructure/observability/insights/metrics",
+        "latency_seconds": 1.9314094999572262,
+        "error_category": "none"
+      }
+    },
+    {
+      "step": 2,
+      "action": "api_call",
+      "api_call": {
+        "method": "POST",
+        "url": "https://platform.adobe.io/data/infrastructure/observability/insights/metrics",
+        "params": {},
+        "status_code": 200,
+        "result_preview": {
+          "metricResponses": [
+            {
+              "metric": "timeseries.ingestion.dataset.size",
+              "filters": [],
+              "datapoints": [
+                {
+                  "groupByKeySignature": "",
+                  "groupBy": {},
+                  "dps": {
+                    "2026-04-13T00:00:00Z": 573213.0,
+                    "2026-04-28T00:00:00Z": 12527.0,
+                    "2026-04-15T00:00:00Z": 352365.0,
+                    "2026-05-02T00:00:00Z": 12591.0,
+                    "2026-04-07T00:00:00Z": -644867.0,
+                    "2026-04-21T00:00:00Z": 547.0,
+                    "2026-04-26T00:00:00Z": -11793.0,
+                    "2026-04-04T00:00:00Z": 401402.0,
+                    "2026-04-17T00:00:00Z": 3940316.0,
+                    "2026-04-02T00:00:00Z": 367631.0,
+                    "2026-04-10T00:00:00Z": 468373.0,
+                    "2026-04-09T00:00:00Z": 594139.0,
+                    "2026-04-23T00:00:00Z": 16031427.0,
+                    "2026-04-08T00:00:00Z": 348917.0,
+                    "2026-04-27T00:00:00Z": -4207.0,
+                    "2026-04-12T00:00:00Z": 377882.0,
+                    "2026-04-25T00:00:00Z": -17800.0,
+                    "2026-04-06T00:00:00Z": 368290.0,
+                    "2026-04-20T00:00:00Z": 245651.0,
+                    "2026-04-14T00:00:00Z": 471930.0,
+                    "2026-05-01T00:00:00Z": 12624.0,
+                    "2026-04-19T00:00:00Z": 100312.0,
+                    "2026-04-03T00:00:00Z": 406461.0,
+                    "2026-05-03T00:00:00Z": 11503.0,
+                    "2026-04-18T00:00:00Z": 448929.0,
+                    "2026-04-05T00:00:00Z": 436277.0,
+                    "2026-04-22T00:00:00Z": -14054.0,
+                    "2026-04-11T00:00:00Z": 372940.0,
+                    "2026-04-24T00:00:00Z": 2226.0,
+                    "2026-04-30T00:00:00Z": 7577586.0,
+                    "2026-04-16T00:00:00Z": 1523874.0,
+                    "2026-04-29T00:00:00Z": 15198830.0
+                  }
+                }
+              ],
+              "granularity": "DAY",
+              "entrypoint": null
+            }
+          ]
+        },
+        "mock": false,
+        "body": {
+          "start": "2026-04-02T00:00:00.000Z",
+          "end": "2026-05-03T23:59:59.000Z",
+          "granularity": "day",
+          "metrics": [
+            {
+              "name": "timeseries.ingestion.dataset.size",
+              "filters": [],
+              "aggregator": "sum"
+            }
+          ]
+        },
+        "endpoint_path": "/data/infrastructure/observability/insights/metrics",
+        "latency_seconds": 2.1126883000833914,
+        "error_category": "none"
+      }
+    },
+    {
+      "step": 3,
+      "action": "api_call",
+      "api_call": {
+        "method": "POST",
+        "url": "https://platform.adobe.io/data/infrastructure/observability/insights/metrics",
+        "params": {},
+        "status_code": 200,
+        "result_preview": {
+          "metricResponses": [
+            {
+              "metric": "timeseries.ingestion.dataset.size",
+              "filters": [],
+              "datapoints": [
+                {
+                  "groupByKeySignature": "",
+                  "groupBy": {},
+                  "dps": {
+                    "2026-05-13T00:00:00Z": 15157962.0,
+                    "2026-05-09T00:00:00Z": 12475.0,
+                    "2026-05-26T00:00:00Z": 143266.0,
+                    "2026-05-28T00:00:00Z": 143293.0,
+                    "2026-05-15T00:00:00Z": 2728076.0,
+                    "2026-05-21T00:00:00Z": 2393363.0,
+                    "2026-05-07T00:00:00Z": 15050092.0,
+                    "2026-06-02T00:00:00Z": 143172.0,
+                    "2026-05-04T00:00:00Z": -35.0,
+                    "2026-05-23T00:00:00Z": 2215877.0,
+                    "2026-06-04T00:00:00Z": 4.0,
+                    "2026-05-10T00:00:00Z": 13430.0,
+                    "2026-05-25T00:00:00Z": 143249.0,
+                    "2026-05-12T00:00:00Z": 15157212.0,
+                    "2026-05-17T00:00:00Z": 143197.0,
+                    "2026-05-31T00:00:00Z": 143249.0,
+                    "2026-05-27T00:00:00Z": 143272.0,
+                    "2026-05-08T00:00:00Z": 12559.0,
+                    "2026-06-01T00:00:00Z": 143256.0,
+                    "2026-05-20T00:00:00Z": 130688.0,
+                    "2026-05-06T00:00:00Z": 15012224.0,
+                    "2026-05-19T00:00:00Z": 143306.0,
+                    "2026-05-14T00:00:00Z": 16161108.0,
+                    "2026-05-18T00:00:00Z": 143272.0,
+                    "2026-05-22T00:00:00Z": 2378826.0,
+                    "2026-05-05T00:00:00Z": 12610.0,
+                    "2026-06-03T00:00:00Z": 12638.0,
+                    "2026-05-11T00:00:00Z": 143299.0,
+                    "2026-05-30T00:00:00Z": 143278.0,
+                    "2026-05-16T00:00:00Z": 143269.0,
+                    "2026-05-29T00:00:00Z": 337590.0,
+                    "2026-05-24T00:00:00Z": 143288.0
+                  }
+                }
+              ],
+              "granularity": "DAY",
+              "entrypoint": null
+            }
+          ]
+        },
+        "mock": false,
+        "body": {
+          "start": "2026-05-04T00:00:00.000Z",
+          "end": "2026-06-04T23:59:59.000Z",
+          "granularity": "day",
+          "metrics": [
+            {
+              "name": "timeseries.ingestion.dataset.size",
+              "filters": [],
+              "aggregator": "sum"
+            }
+          ]
+        },
+        "endpoint_path": "/data/infrastructure/observability/insights/metrics",
+        "latency_seconds": 2.1451433000620455,
+        "error_category": "none"
+      }
+    },
+    {
+      "step": 4,
+      "action": "api_call",
+      "api_call": {
+        "method": "POST",
+        "url": "https://platform.adobe.io/data/infrastructure/observability/insights/metrics",
+        "params": {},
+        "status_code": 200,
+        "result_preview": {
+          "metricResponses": [
+            {
+              "metric": "timeseries.ingestion.dataset.size",
+              "filters": [],
+              "datapoints": [],
+              "granularity": "DAY",
+              "entrypoint": null
+            }
+          ]
+        },
+        "mock": false,
+        "body": {
+          "start": "2026-06-05T00:00:00.000Z",
+          "end": "2026-07-06T23:59:59.000Z",
+          "granularity": "day",
+          "metrics": [
+            {
+              "name": "timeseries.ingestion.dataset.size",
+              "filters": [],
+              "aggregator": "sum"
+            }
+          ]
+        },
+        "endpoint_path": "/data/infrastructure/observability/insights/metrics",
+        "latency_seconds": 1.6515912999166176,
+        "error_category": "none"
+      }
+    },
+    {
+      "step": 5,
+      "action": "api_call",
+      "api_call": {
+        "method": "POST",
+        "url": "https://platform.adobe.io/data/infrastructure/observability/insights/metrics",
+        "params": {},
+        "status_code": 200,
+        "result_preview": {
+          "metricResponses": [
+            {
+              "metric": "timeseries.ingestion.dataset.size",
+              "filters": [],
+              "datapoints": [],
+              "granularity": "DAY",
+              "entrypoint": null
+            }
+          ]
+        },
+        "mock": false,
+        "body": {
+          "start": "2026-07-07T00:00:00.000Z",
+          "end": "2026-08-07T23:59:59.000Z",
+          "granularity": "day",
+          "metrics": [
+            {
+              "name": "timeseries.ingestion.dataset.size",
+              "filters": [],
+              "aggregator": "sum"
+            }
+          ]
+        },
+        "endpoint_path": "/data/infrastructure/observability/insights/metrics",
+        "latency_seconds": 1.653778100037016,
+        "error_category": "none"
+      }
+    },
+    {
+      "step": 6,
+      "action": "api_call",
+      "api_call": {
+        "method": "POST",
+        "url": "https://platform.adobe.io/data/infrastructure/observability/insights/metrics",
+        "params": {},
+        "status_code": 200,
+        "result_preview": {
+          "metricResponses": [
+            {
+              "metric": "timeseries.ingestion.dataset.size",
+              "filters": [],
+              "datapoints": [],
+              "granularity": "DAY",
+              "entrypoint": null
+            }
+          ]
+        },
+        "mock": false,
+        "body": {
+          "start": "2026-08-08T00:00:00.000Z",
+          "end": "2026-09-08T23:59:59.000Z",
+          "granularity": "day",
+          "metrics": [
+            {
+              "name": "timeseries.ingestion.dataset.size",
+              "filters": [],
+              "aggregator": "sum"
+            }
+          ]
+        },
+        "endpoint_path": "/data/infrastructure/observability/insights/metrics",
+        "latency_seconds": 1.7122421999229118,
+        "error_category": "none"
+      }
+    },
+    {
+      "step": 7,
+      "action": "api_call",
+      "api_call": {
+        "method": "POST",
+        "url": "https://platform.adobe.io/data/infrastructure/observability/insights/metrics",
+        "params": {},
+        "status_code": 200,
+        "result_preview": {
+          "metricResponses": [
+            {
+              "metric": "timeseries.ingestion.dataset.size",
+              "filters": [],
+              "datapoints": [],
+              "granularity": "DAY",
+              "entrypoint": null
+            }
+          ]
+        },
+        "mock": false,
+        "body": {
+          "start": "2026-09-09T00:00:00.000Z",
+          "end": "2026-10-10T23:59:59.000Z",
+          "granularity": "day",
+          "metrics": [
+            {
+              "name": "timeseries.ingestion.dataset.size",
+              "filters": [],
+              "aggregator": "sum"
+            }
+          ]
+        },
+        "endpoint_path": "/data/infrastructure/observability/insights/metrics",
+        "latency_seconds": 1.688872699975036,
+        "error_category": "none"
+      }
+    },
+    {
+      "step": 8,
+      "action": "api_call",
+      "api_call": {
+        "method": "POST",
+        "url": "https://platform.adobe.io/data/infrastructure/observability/insights/metrics",
+        "params": {},
+        "status_code": 200,
+        "result_preview": {
+          "metricResponses": [
+            {
+              "metric": "timeseries.ingestion.dataset.size",
+              "filters": [],
+              "datapoints": [],
+              "granularity": "DAY",
+              "entrypoint": null
+            }
+          ]
+        },
+        "mock": false,
+        "body": {
+          "start": "2026-10-11T00:00:00.000Z",
+          "end": "2026-11-11T23:59:59.000Z",
+          "granularity": "day",
+          "metrics": [
+            {
+              "name": "timeseries.ingestion.dataset.size",
+              "filters": [],
+              "aggregator": "sum"
+            }
+          ]
+        },
+        "endpoint_path": "/data/infrastructure/observability/insights/metrics",
+        "latency_seconds": 1.773085799999535,
+        "error_category": "none"
+      }
+    },
+    {
+      "step": 9,
+      "action": "api_call",
+      "api_call": {
+        "method": "POST",
+        "url": "https://platform.adobe.io/data/infrastructure/observability/insights/metrics",
+        "params": {},
+        "status_code": 200,
+        "result_preview": {
+          "metricResponses": [
+            {
+              "metric": "timeseries.ingestion.dataset.size",
+              "filters": [],
+              "datapoints": [],
+              "granularity": "DAY",
+              "entrypoint": null
+            }
+          ]
+        },
+        "mock": false,
+        "body": {
+          "start": "2026-11-12T00:00:00.000Z",
+          "end": "2026-12-13T23:59:59.000Z",
+          "granularity": "day",
+          "metrics": [
+            {
+              "name": "timeseries.ingestion.dataset.size",
+              "filters": [],
+              "aggregator": "sum"
+            }
+          ]
+        },
+        "endpoint_path": "/data/infrastructure/observability/insights/metrics",
+        "latency_seconds": 1.6707153000170365,
+        "error_category": "none"
+      }
+    },
+    {
+      "step": 10,
+      "action": "api_call",
+      "api_call": {
+        "method": "POST",
+        "url": "https://platform.adobe.io/data/infrastructure/observability/insights/metrics",
+        "params": {},
+        "status_code": 200,
+        "result_preview": {
+          "metricResponses": [
+            {
+              "metric": "timeseries.ingestion.dataset.size",
+              "filters": [],
+              "datapoints": [],
+              "granularity": "DAY",
+              "entrypoint": null
+            }
+          ]
+        },
+        "mock": false,
+        "body": {
+          "start": "2026-12-14T00:00:00.000Z",
+          "end": "2026-12-31T23:59:59.000Z",
+          "granularity": "day",
+          "metrics": [
+            {
+              "name": "timeseries.ingestion.dataset.size",
+              "filters": [],
+              "aggregator": "sum"
+            }
+          ]
+        },
+        "endpoint_path": "/data/infrastructure/observability/insights/metrics",
+        "latency_seconds": 1.7314963999669999,
+        "error_category": "none"
+      }
+    }
+  ],
+  "answer": "SQL evidence was not required or returned no rows. API evidence includes 10 call(s)."
+}

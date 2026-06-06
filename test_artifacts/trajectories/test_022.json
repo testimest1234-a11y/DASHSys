@@ -1,0 +1,21 @@
+{
+  "query": "Is the audience 'Gender: Male' referenced in more than one journey simultaneously?",
+  "trace": [
+    {
+      "step": 1,
+      "action": "sql_query",
+      "sql": "WITH target_audience AS (\n    SELECT segmentid, name\n    FROM dim_segment\n    WHERE LOWER(name) = LOWER('Gender: Male')\n)\nSELECT a.segmentid AS audience_id,\n       a.name AS audience_name,\n       COUNT(DISTINCT c.campaignid) AS journey_count,\n       string_agg(DISTINCT c.name, ', ') AS journey_names,\n       COUNT(DISTINCT c.campaignid) > 1 AS referenced_in_more_than_one_journey\nFROM target_audience a\nLEFT JOIN br_campaign_segment cs ON a.segmentid = cs.segmentid\nLEFT JOIN dim_campaign c ON cs.campaignid = c.campaignid\nGROUP BY a.segmentid, a.name",
+      "results": [
+        {
+          "audience_id": "f6b93428-c021-4058-a1a2-77c277aab564",
+          "audience_name": "Gender: Male",
+          "journey_count": 0,
+          "journey_names": null,
+          "referenced_in_more_than_one_journey": false
+        }
+      ],
+      "status": "success"
+    }
+  ],
+  "answer": "SQL evidence returned 1 row(s): f6b93428-c021-4058-a1a2-77c277aab564."
+}

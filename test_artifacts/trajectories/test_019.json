@@ -1,0 +1,19 @@
+{
+  "query": "How many duplicate audiences do I have?",
+  "trace": [
+    {
+      "step": 1,
+      "action": "sql_query",
+      "sql": "WITH duplicate_groups AS (\n    SELECT definitionhash,\n           COUNT(*) AS audience_count\n    FROM dim_segment\n    WHERE definitionhash IS NOT NULL\n    GROUP BY definitionhash\n    HAVING COUNT(*) > 1\n)\nSELECT COALESCE(SUM(audience_count - 1), 0) AS duplicate_audience_count,\n       COUNT(*) AS duplicate_rule_group_count,\n       COALESCE(SUM(audience_count), 0) AS audience_rows_in_duplicate_groups\nFROM duplicate_groups",
+      "results": [
+        {
+          "duplicate_audience_count": 1,
+          "duplicate_rule_group_count": 1,
+          "audience_rows_in_duplicate_groups": 2
+        }
+      ],
+      "status": "success"
+    }
+  ],
+  "answer": "SQL evidence returned 1 row(s): 1."
+}

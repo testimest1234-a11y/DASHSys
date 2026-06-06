@@ -1,0 +1,13 @@
+{
+  "query": "List all audiences used by live journeys with 'streaming' in the journey name.",
+  "trace": [
+    {
+      "step": 1,
+      "action": "sql_query",
+      "sql": "SELECT DISTINCT s.segmentid AS audience_id,\n       s.name AS audience_name,\n       c.campaignid AS journey_id,\n       c.name AS journey_name,\n       c.state AS journey_state,\n       c.status AS journey_status,\n       c.lastdeployedtime AS last_deployed_time\nFROM dim_segment s\nJOIN br_campaign_segment cs ON s.segmentid = cs.segmentid\nJOIN dim_campaign c ON cs.campaignid = c.campaignid\nWHERE c.name ILIKE '%streaming%'\n  AND (\n      LOWER(c.state) IN ('deployed', 'redeployed', 'live', 'published')\n      OR LOWER(c.status) IN ('deployed', 'redeployed', 'live', 'published')\n      OR c.lastdeployedtime IS NOT NULL\n  )\nORDER BY c.name, s.name",
+      "results": [],
+      "status": "success"
+    }
+  ],
+  "answer": "No SQL evidence was available."
+}

@@ -1,0 +1,5 @@
+rules:
+  default_limit: 50
+  use_local_llm_for_confidence_below: 0.7
+  allow_sql_repair_once: true
+  allow_answer_polish: false

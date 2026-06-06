@@ -1,0 +1,133 @@
+{
+  "query": "Show the details of batch 01KP6MNQ3X71RP6MNH6FHWGHVE.",
+  "trace": [
+    {
+      "step": 1,
+      "action": "api_call",
+      "api_call": {
+        "method": "GET",
+        "url": "https://platform.adobe.io/data/foundation/catalog/batches/01KP6MNQ3X71RP6MNH6FHWGHVE",
+        "params": {},
+        "status_code": 200,
+        "result_preview": {
+          "01KP6MNQ3X71RP6MNH6FHWGHVE": {
+            "status": "success",
+            "tags": {
+              "acp_stagePath": [
+                "connectors-dev/stage/01KP6MNQ3X71RP6MNH6FHWGHVE"
+              ],
+              "connectors/job/id": [
+                "M-89dd2400-2ac0-4660-a0c2-dcb9e15a66b6-incremental-0"
+              ],
+              "aep_sip_mapper": [
+                "mapping-set-id:d4d3299532dc46b392c3c7030b66a164",
+                "mapping-set-version:0"
+              ],
+              "acp_sloPolicyName": [
+                "live10Mb"
+              ],
+              "aep/siphon/partitions/paths": [],
+              "acp_finalized_time": [
+                "1776192014879"
+              ],
+              "acp_workflow": [
+                "ValveWorkflow"
+              ],
+              "flowRunId": [
+                "a5d22f4e-38e4-4a9e-ac9f-a6626f1fb614"
+              ],
+              "acp_requestType": [
+                "service"
+              ],
+              "acp_latencyTargetInMillis": [
+                "300000"
+              ],
+              "acp_dataSetViewId": [
+                "69c8d9e7cba5deaa7974b00b"
+              ],
+              "acp_type": [
+                "ingest"
+              ],
+              "connectors/job/runId": [
+                "8e898c7a-3099-43ad-b946-f96af72aeed4"
+              ],
+              "siphon/valve/stage/ingest": [
+                "{\"id\":\"dd73c8bfb23a472494884f0bf01e8908\",\"status\":\"created\",\"createdAt\":1776191989007,\"batchId\":\"01KP6MNQ3X71RP6MNH6FHWGHVE\",\"imsOrg\":\"[REDACTED]\",\"bulkHead\":\"live\",\"service\":\"platform.siphon.ingest\",\"properties\":{}}"
+              ],
+              "siphon/valve/ingest/status": [
+                "{\"id\":\"dd73c8bfb23a472494884f0bf01e8908\",\"status\":\"finished\",\"createdAt\":1776192012745,\"batchId\":\"01KP6MNQ3X71RP6MNH6FHWGHVE\",\"imsOrg\":\"[REDACTED]\",\"bulkHead\":\"live\",\"service\":\"platform.siphon.ingest\",\"output\":\"/connectors-dev/stage/01KP6MNQ3X71RP6MNH6FHWGHVE-staged/attempt-01KP6MPEYWK0AFBYZN0M03TE65\",\"sandbox\":{\"sandboxId\":\"a30a9c4e-327a-4d60-8a9c-4e327a6d60dd\",\"sandboxName\":\"external-benchmarking\"},\"properties\":{\"tableCommit\":{\"masterSnapshotId\":\"61\"}}}"
+              ],
+              "acp_attemptId": [
+                "01KP6MPEYWK0AFBYZN0M03TE65"
+              ],
+              "acp_bulkHead": [
+                "live"
+              ],
+              "acp_producer": [
+                "acp_foundation_connectors",
+                "aep/siphon/bi/uploadMode::PROXY"
+              ],
+              "flowId": [
+                "89dd2400-2ac0-4660-a0c2-dcb9e15a66b6"
+              ],
+              "acp_producer_hints": [
+                "acp_bufferedData::true"
+              ],
+              "acp_finalized": [
+                "finalized"
+              ],
+              "acp_buffered": [
+                "false"
+              ],
+              "acp_latencyMaxInMillis": [
+                "10800000"
+              ],
+              "adobe_uis_export_status": [
+                "{\"snapshotId\":\"102\",\"latestMergedSnapshotVersionStamp\":\"AABUq37OxXsAAA==\",\"status\":\"COMPLETED\"}"
+              ]
+            },
+            "relatedObjects": [
+              {
+                "type": "dataSet",
+                "id": "69c8d9e7cba5deaa7974b00b"
+              }
+            ],
+            "id": "01KP6MNQ3X71RP6MNH6FHWGHVE",
+            "externalId": "01KP6MNQ3X71RP6MNH6FHWGHVE",
+            "inputFormat": {
+              "format": "json",
+              "isMultiLineJson": false
+            },
+            "imsOrg": "[REDACTED]",
+            "sandboxId": "a30a9c4e-327a-4d60-8a9c-4e327a6d60dd",
+            "started": 1776191987826,
+            "metrics": {
+              "failedRecordCount": 0,
+              "partitionCount": 0,
+              "outputByteSize": 38164,
+              "inputFileCount": 1,
+              "inputByteSize": 8090,
+              "outputRecordCount": 11,
+              "outputFileCount": 3,
+              "acp_schemaWidth": 96,
+              "inputRecordCount": 11
+            },
+            "completed": 1776192014417,
+            "errors": [],
+            "created": 1776191986942,
+            "createdClient": "acp_foundation_push",
+            "createdUser": "acp_foundation_connectors@AdobeID",
+            "updatedUser": "acp_core_identity_data@AdobeID",
+            "updated": 1776198139540,
+            "version": "1.0.7"
+          }
+        },
+        "mock": false,
+        "endpoint_path": "/data/foundation/catalog/batches/01KP6MNQ3X71RP6MNH6FHWGHVE",
+        "latency_seconds": 1.7567127000074834,
+        "error_category": "none"
+      }
+    }
+  ],
+  "answer": "SQL evidence was not required or returned no rows. API evidence includes 1 call(s)."
+}

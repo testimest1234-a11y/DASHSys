@@ -1,0 +1,19 @@
+{
+  "query": "Do I have audiences with the same logic but different names?",
+  "trace": [
+    {
+      "step": 1,
+      "action": "sql_query",
+      "sql": "SELECT definitionhash AS definition_hash,\n       COUNT(*) AS audience_count,\n       string_agg(name, ', ') AS audience_names\nFROM dim_segment\nWHERE definitionhash IS NOT NULL\nGROUP BY definitionhash\nHAVING COUNT(*) > 1\nORDER BY audience_count DESC, definition_hash",
+      "results": [
+        {
+          "definition_hash": 3983890829,
+          "audience_count": 2,
+          "audience_names": "Person: Birthday Today 001, Person: Birthday today"
+        }
+      ],
+      "status": "success"
+    }
+  ],
+  "answer": "SQL evidence returned 1 row(s): 3983890829."
+}
